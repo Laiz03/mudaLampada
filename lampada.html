@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acender Lâmpada</title>
+</head>
+
+<script>
+    var quebrada = false;
+    function mudaLampada(tipo){ /*Passando parametros para função*/ 
+        if(tipo == 1){
+            arquivo = "acesa.png";
+        }
+        if(tipo == 2){
+            arquivo = "apagada.png";
+        }
+        if(tipo == 3){
+            arquivo = "quebrada.png";
+        }
+        if(!quebrada){
+          document.getElementById("luz").src = arquivo; /*getElementById pega um elemento pelo id*/
+          if(tipo == 3){
+            quebrada = true;
+          }
+        }
+    }
+</script>
+<body style="background-color: black;">
+    <h1 style="color: white;">Acender Lâmpada</h1>
+    <img src="apagada.png" id="luz" onmousemove="mudaLampada(1)" onmouseout="mudaLampada(2)" onclick="mudaLampada(3)"> <!--Quando mover o mouse muda a lampada p estado 1, quando tirar o mouse muda p estado 2 e quando clicar estado 3-->
+</body>
+</html>
